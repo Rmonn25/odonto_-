@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODONTO+ | Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link" data-page="patients">
+                        <i class="fas fa-user-injured"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link active" data-page="exams">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link" data-page="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link" data-page="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Exames</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size: 0.8rem; color: var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- exames -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Exames Recentes</h2>
+                    <button class="btn" id="add-exam-btn">
+                        <i class="fas fa-plus"></i>
+                        Novo Exame
+                    </button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Tipo</th>
+                            <th>Data</th>
+                            <th>Doutor</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Silva</td>
+                            <td>Raio-X</td>
+                            <td>15/10/2023</td>
+                            <td>Dr. Carlos Almeida</td>
+                            <td><span class="status-badge status-completed">Concluído</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Santos</td>
+                            <td>Limpeza</td>
+                            <td>10/10/2023</td>
+                            <td>Dra. Fernanda Lima</td>
+                            <td><span class="status-badge status-completed">Concluído</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Oliveira</td>
+                            <td>Consulta</td>
+                            <td>05/10/2023</td>
+                            <td>Dr. Roberto Santos</td>
+                            <td><span class="status-badge status-pending">Pendente</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add Exam Modal -->
+            <div class="modal" id="exam-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Adicionar Exame</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="exam-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="exam-patient">Paciente</label>
+                                    <select class="form-control" id="exam-patient" required>
+                                        <option value="">Selecione um paciente</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exam-type">Tipo de Exame</label>
+                                    <select class="form-control" id="exam-type" required>
+                                        <option value="">Selecione o tipo</option>
+                                        <option value="raio-x">Raio-X</option>
+                                        <option value="limpeza">Limpeza</option>
+                                        <option value="consulta">Consulta</option>
+                                        <option value="ortodontia">Ortodontia</option>
+                                        <option value="cirurgia">Cirurgia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="exam-date">Data do Exame</label>
+                                    <input type="date" class="form-control" id="exam-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exam-doctor">Doutor</label>
+                                    <select class="form-control" id="exam-doctor" required>
+                                        <option value="">Selecione um doutor</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="exam-notes">Observações</label>
+                                <textarea class="form-control" id="exam-notes" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="exam-status">Status</label>
+                                <select class="form-control" id="exam-status" required>
+                                    <option value="pending">Pendente</option>
+                                    <option value="completed">Concluído</option>
+                                    <option value="cancelled">Cancelado</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancel-exam">Cancelar</button>
+                        <button class="btn" id="save-exam">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ODONTO+ | Agendamentos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-home"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link" data-page="patients">
+                        <i class="fas fa-user-injured"></i><span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link" data-page="exams">
+                        <i class="fas fa-file-medical"></i><span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link" data-page="doctors">
+                        <i class="fas fa-user-md"></i><span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link active" data-page="appointments">
+                        <i class="fas fa-calendar-check"></i><span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i><span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Agendamentos</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size:0.8rem;color:var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="appointments-page" class="page active">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Próximos Agendamentos</h2>
+                        <button class="btn" id="add-appointment-btn">
+                            <i class="fas fa-plus"></i> Novo Agendamento
+                        </button>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Doutor</th>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointments-table-body">
+                            <!-- preenchido por script.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Calendário Rápido</h2>
+                    <div class="calendar-placeholder">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Appointment Modal -->
+    <div class="modal" id="appointment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Novo Agendamento</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="appointment-patient">Paciente</label>
+                            <select class="form-control" id="appointment-patient" required>
+                                <option value="">Selecione um paciente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="appointment-doctor">Doutor</label>
+                            <select class="form-control" id="appointment-doctor" required>
+                                <option value="">Selecione um doutor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="appointment-date">Data</label>
+                            <input type="date" class="form-control" id="appointment-date" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="appointment-time">Hora</label>
+                            <input type="time" class="form-control" id="appointment-time" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="appointment-type">Tipo</label>
+                        <select class="form-control" id="appointment-type" required>
+                            <option value="consulta">Consulta</option>
+                            <option value="limpeza">Limpeza</option>
+                            <option value="raio-x">Raio-X</option>
+                            <option value="cirurgia">Cirurgia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="appointment-status">Status</label>
+                        <select class="form-control" id="appointment-status" required>
+                            <option value="confirmed">Confirmado</option>
+                            <option value="pending">Pendente</option>
+                            <option value="cancelled">Cancelado</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-appointment">Cancelar</button>
+                <button class="btn" id="save-appointment">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

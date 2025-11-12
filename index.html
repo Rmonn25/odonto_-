@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODONTO+ | Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link" data-page="patients">
+                        <i class="fas fa-user-injured"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link" data-page="exams">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link" data-page="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link" data-page="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Dashboard</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size: 0.8rem; color: var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <!-- Stats -->
+                <div class="dashboard">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-patients">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>248</h3>
+                            <p>Pacientes Ativos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-doctors">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Doutores</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-exams">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>184</h3>
+                            <p>Exames Realizados</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-appointments">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>32</h3>
+                            <p>Agendamentos Hoje</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos Section -->
+                <div class="charts-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Relatórios e Gráficos</h2>
+                        <button class="btn btn-report" id="generate-report-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            Gerar Relatório
+                        </button>
+                    </div>
+
+                    <div class="charts-container">
+                        <!-- Gráfico de Pacientes por Mês -->
+                        <div class="chart-card">
+                            <h3 class="chart-title">Pacientes Novos por Mês</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="patientsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico de Distribuição de Exames -->
+                        <div class="chart-card">
+                            <h3 class="chart-title">Distribuição de Tipos de Exames</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="examsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico de Agendamentos -->
+                        <div class="chart-card">
+                            <h3 class="chart-title">Agendamentos por Doutor</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="appointmentsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico de Status dos Pacientes -->
+                        <div class="chart-card">
+                            <h3 class="chart-title">Status dos Pacientes</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="statusChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estatísticas Detalhadas -->
+                <div class="stats-detailed-section">
+                    <h2 class="section-title">Estatísticas Detalhadas</h2>
+                    <div class="stats-detailed-container">
+                        <div class="stat-detail-card">
+                            <div class="stat-detail-header">
+                                <h4>Taxa de Ocupação</h4>
+                                <span class="stat-detail-badge">Clínica</span>
+                            </div>
+                            <div class="stat-detail-progress">
+                                <div class="progress-bar" style="width: 85%;">
+                                    <span class="progress-text">85%</span>
+                                </div>
+                            </div>
+                            <p class="stat-detail-info">32 de 40 consultórios ocupados</p>
+                        </div>
+
+                        <div class="stat-detail-card">
+                            <div class="stat-detail-header">
+                                <h4>Taxa de Retorno</h4>
+                                <span class="stat-detail-badge">Pacientes</span>
+                            </div>
+                            <div class="stat-detail-progress">
+                                <div class="progress-bar" style="width: 78%;">
+                                    <span class="progress-text">78%</span>
+                                </div>
+                            </div>
+                            <p class="stat-detail-info">193 de 248 pacientes ativos retornaram</p>
+                        </div>
+
+                        <div class="stat-detail-card">
+                            <div class="stat-detail-header">
+                                <h4>Satisfação</h4>
+                                <span class="stat-detail-badge">Avaliação</span>
+                            </div>
+                            <div class="stat-detail-progress">
+                                <div class="progress-bar" style="width: 92%;">
+                                    <span class="progress-text">92%</span>
+                                </div>
+                            </div>
+                            <p class="stat-detail-info">4.6 de 5 estrelas em média</p>
+                        </div>
+
+                        <div class="stat-detail-card">
+                            <div class="stat-detail-header">
+                                <h4>Pendentes</h4>
+                                <span class="stat-detail-badge">Atenção</span>
+                            </div>
+                            <div class="stat-detail-progress">
+                                <div class="progress-bar progress-warning" style="width: 35%;">
+                                    <span class="progress-text">35</span>
+                                </div>
+                            </div>
+                            <p class="stat-detail-info">35 exames aguardando resultado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Relatório -->
+    <div class="modal" id="report-modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title">Gerar Relatório</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="report-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="report-type">Tipo de Relatório</label>
+                            <select class="form-control" id="report-type" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="patients">Relatório de Pacientes</option>
+                                <option value="exams">Relatório de Exames</option>
+                                <option value="doctors">Relatório de Doutores</option>
+                                <option value="appointments">Relatório de Agendamentos</option>
+                                <option value="financial">Relatório Financeiro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="report-period">Período</label>
+                            <select class="form-control" id="report-period" required>
+                                <option value="">Selecione o período</option>
+                                <option value="week">Última Semana</option>
+                                <option value="month">Último Mês</option>
+                                <option value="quarter">Último Trimestre</option>
+                                <option value="year">Último Ano</option>
+                                <option value="custom">Personalizado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" id="custom-dates" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label" for="report-start-date">Data Inicial</label>
+                            <input type="date" class="form-control" id="report-start-date">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="report-end-date">Data Final</label>
+                            <input type="date" class="form-control" id="report-end-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="report-format">Formato</label>
+                        <select class="form-control" id="report-format" required>
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-report">Cancelar</button>
+                <button class="btn" id="confirm-report">
+                    <i class="fas fa-download"></i>
+                    Gerar e Baixar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

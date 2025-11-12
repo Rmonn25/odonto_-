@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODONTO+ | Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link" data-page="patients">
+                        <i class="fas fa-user-injured"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link" data-page="exams">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link active" data-page="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link" data-page="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Doutores</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size: 0.8rem; color: var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="doctors-page" class="page active">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Gerenciar Doutores</h2>
+                        <button class="btn" id="new-doctor-btn">
+                            <i class="fas fa-plus"></i>
+                            Novo Doutor
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Especialidade</th>
+                                <th>Telefone</th>
+                                <th>E-mail</th>
+                                <th>CRO</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctors-table-body">
+                            <tr>
+                                <td>Dr. Carlos Almeida</td>
+                                <td>Ortodontia</td>
+                                <td>(11) 98765-4321</td>
+                                <td>carlos.almeida@odonto.com</td>
+                                <td>CRO 12345-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dra. Fernanda Lima</td>
+                                <td>Endodontia</td>
+                                <td>(11) 97654-3210</td>
+                                <td>fernanda.lima@odonto.com</td>
+                                <td>CRO 23456-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Roberto Santos</td>
+                                <td>Periodontia</td>
+                                <td>(11) 96543-2109</td>
+                                <td>roberto.santos@odonto.com</td>
+                                <td>CRO 34567-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dra. Juliana Costa</td>
+                                <td>Implantodontia</td>
+                                <td>(11) 95432-1098</td>
+                                <td>juliana.costa@odonto.com</td>
+                                <td>CRO 45678-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anderson Pereira</td>
+                                <td>Dentística</td>
+                                <td>(11) 94321-0987</td>
+                                <td>anderson.pereira@odonto.com</td>
+                                <td>CRO 56789-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Marcos Oliveira</td>
+                                <td>Cirurgia</td>
+                                <td>(11) 93210-9876</td>
+                                <td>marcos.oliveira@odonto.com</td>
+                                <td>CRO 67890-SP</td>
+                                <td><span class="status-badge status-vacation">Férias</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dra. Beatriz Mendes</td>
+                                <td>Ortodontia</td>
+                                <td>(11) 92109-8765</td>
+                                <td>beatriz.mendes@odonto.com</td>
+                                <td>CRO 78901-SP</td>
+                                <td><span class="status-badge status-active">Ativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Lucas Gomes</td>
+                                <td>Periodontia</td>
+                                <td>(11) 91098-7654</td>
+                                <td>lucas.gomes@odonto.com</td>
+                                <td>CRO 89012-SP</td>
+                                <td><span class="status-badge status-inactive">Inativo</span></td>
+                                <td class="action-buttons">
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Doctor Modal -->
+            <div class="modal" id="doctor-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Adicionar Doutor</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="doctor-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="doctor-name">Nome Completo</label>
+                                    <input type="text" class="form-control" id="doctor-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="doctor-specialty">Especialidade</label>
+                                    <select class="form-control" id="doctor-specialty" required>
+                                        <option value="">Selecione uma especialidade</option>
+                                        <option value="ortodontia">Ortodontia</option>
+                                        <option value="endodontia">Endodontia</option>
+                                        <option value="periodontia">Periodontia</option>
+                                        <option value="implantodontia">Implantodontia</option>
+                                        <option value="dentistica">Dentística</option>
+                                        <option value="cirurgia">Cirurgia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="doctor-phone">Telefone</label>
+                                    <input type="tel" class="form-control" id="doctor-phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="doctor-email">E-mail</label>
+                                    <input type="email" class="form-control" id="doctor-email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="doctor-cro">CRO</label>
+                                <input type="text" class="form-control" id="doctor-cro" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="doctor-status">Status</label>
+                                <select class="form-control" id="doctor-status" required>
+                                    <option value="active">Ativo</option>
+                                    <option value="inactive">Inativo</option>
+                                    <option value="vacation">Férias</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancel-doctor">Cancelar</button>
+                        <button class="btn" id="save-doctor">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

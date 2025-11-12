@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODONTO+ | Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link active" data-page="patients">
+                        <i class="fas fa-user-injured"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link" data-page="exams">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link" data-page="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link" data-page="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Pacientes</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size: 0.8rem; color: var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Patients -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Pacientes Recentes</h2>
+                    <button class="btn" id="add-patient-btn">
+                        <i class="fas fa-plus"></i>
+                        Novo Paciente
+                    </button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Telefone</th>
+                            <th>Última Visita</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Silva</td>
+                            <td>35</td>
+                            <td>(11) 98765-4321</td>
+                            <td>15/10/2023</td>
+                            <td><span class="status-badge status-active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Santos</td>
+                            <td>42</td>
+                            <td>(11) 97654-3210</td>
+                            <td>10/10/2023</td>
+                            <td><span class="status-badge status-active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Oliveira</td>
+                            <td>28</td>
+                            <td>(11) 96543-2109</td>
+                            <td>05/10/2023</td>
+                            <td><span class="status-badge status-pending">Pendente</span></td>
+                            <td class="action-buttons">
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="patients-page" class="page active">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Gerenciar Pacientes</h2>
+                        <button class="btn" id="new-patient-btn">
+                            <i class="fas fa-plus"></i>
+                            Novo Paciente
+                        </button>
+                    </div>
+                    <div class="tabs">
+                        <div class="tab active" data-tab="all-patients">Todos os Pacientes</div>
+                        <div class="tab" data-tab="active-patients">Pacientes Ativos</div>
+                        <div class="tab" data-tab="inactive-patients">Pacientes Inativos</div>
+                    </div>
+                    <div class="tab-content active" id="all-patients">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Telefone</th>
+                                    <th>E-mail</th>
+                                    <th>Última Visita</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patients-table-body">
+                                <!-- Patients will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Patient Modal -->
+            <div class="modal" id="patient-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Adicionar Paciente</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="patient-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-name">Nome Completo</label>
+                                    <input type="text" class="form-control" id="patient-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-birthdate">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="patient-birthdate" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-phone">Telefone</label>
+                                    <input type="tel" class="form-control" id="patient-phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-email">E-mail</label>
+                                    <input type="email" class="form-control" id="patient-email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="patient-address">Endereço</label>
+                                <input type="text" class="form-control" id="patient-address">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-cpf">CPF</label>
+                                    <input type="text" class="form-control" id="patient-cpf" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="patient-status">Status</label>
+                                    <select class="form-control" id="patient-status" required>
+                                        <option value="active">Ativo</option>
+                                        <option value="inactive">Inativo</option>
+                                        <option value="pending">Pendente</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancel-patient">Cancelar</button>
+                        <button class="btn" id="save-patient">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
