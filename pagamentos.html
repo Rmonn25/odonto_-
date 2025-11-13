@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODONTO+ | Pagamentos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="logo-text">ODONTO+</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pacientes.html" class="nav-link">
+                        <i class="fas fa-user-injured"></i><span>Pacientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="exames.html" class="nav-link">
+                        <i class="fas fa-file-medical"></i><span>Exames</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doutores.html" class="nav-link">
+                        <i class="fas fa-user-md"></i><span>Doutores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i><span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link active">
+                        <i class="fas fa-credit-card"></i><span>Pagamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i><span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="page-title">Pagamentos</h1>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div>Administrador</div>
+                        <div style="font-size: 0.8rem; color: var(--gray);">odontoplus@email.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payments-page" class="page active">
+                <!-- Stats Cards -->
+                <div class="dashboard">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-patients">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>R$ 45.320,50</h3>
+                            <p>Total Recebido</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-doctors">
+                            <i class="fas fa-hourglass-end"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>R$ 8.750,00</h3>
+                            <p>Pendente</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-exams">
+                            <i class="fas fa-redo"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>R$ 2.340,00</h3>
+                            <p>Reembolsos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-appointments">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>98%</h3>
+                            <p>Taxa de Pagamento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Table -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Gerenciar Pagamentos</h2>
+                        <button class="btn" id="new-payment-btn">
+                            <i class="fas fa-plus"></i>
+                            Novo Pagamento
+                        </button>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Serviço</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Método</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payments-table-body">
+                            <!-- preenchido por script.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Payment Methods Stats -->
+                <div class="content-section">
+                    <h2 class="section-title">Métodos de Pagamento</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method-card">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Cartão de Crédito</h3>
+                            <p class="amount">R$ 28.450,00</p>
+                            <p class="percentage">62.8%</p>
+                        </div>
+                        <div class="payment-method-card">
+                            <i class="fas fa-money-bill"></i>
+                            <h3>Dinheiro</h3>
+                            <p class="amount">R$ 10.230,50</p>
+                            <p class="percentage">22.6%</p>
+                        </div>
+                        <div class="payment-method-card">
+                            <i class="fas fa-university"></i>
+                            <h3>Transferência Bancária</h3>
+                            <p class="amount">R$ 6.640,00</p>
+                            <p class="percentage">14.6%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="content-section">
+                    <h2 class="section-title">Transações Recentes</h2>
+                    <div class="transactions-list">
+                        <!-- preenchido por script.js -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Payment Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Registrar Pagamento</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="payment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="payment-patient">Paciente</label>
+                            <select class="form-control" id="payment-patient" required>
+                                <option value="">Selecione um paciente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="payment-service">Serviço</label>
+                            <select class="form-control" id="payment-service" required>
+                                <option value="">Selecione o serviço</option>
+                                <option value="consulta">Consulta</option>
+                                <option value="limpeza">Limpeza</option>
+                                <option value="raio-x">Raio-X</option>
+                                <option value="obturacao">Obturação</option>
+                                <option value="extracao">Extração</option>
+                                <option value="implante">Implante</option>
+                                <option value="clareamento">Clareamento</option>
+                                <option value="aparelho">Aparelho</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="payment-amount">Valor (R$)</label>
+                            <input type="number" class="form-control" id="payment-amount" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="payment-date">Data do Pagamento</label>
+                            <input type="date" class="form-control" id="payment-date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="payment-method">Método de Pagamento</label>
+                            <select class="form-control" id="payment-method" required>
+                                <option value="credit-card">Cartão de Crédito</option>
+                                <option value="debit-card">Cartão de Débito</option>
+                                <option value="cash">Dinheiro</option>
+                                <option value="transfer">Transferência Bancária</option>
+                                <option value="check">Cheque</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="payment-status">Status</label>
+                            <select class="form-control" id="payment-status" required>
+                                <option value="paid">Pago</option>
+                                <option value="pending">Pendente</option>
+                                <option value="cancelled">Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="payment-notes">Observações</label>
+                        <textarea class="form-control" id="payment-notes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-payment">Cancelar</button>
+                <button class="btn" id="save-payment">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
